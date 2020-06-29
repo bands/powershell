@@ -1,0 +1,2 @@
+# Replace the build number surrounded by ** and specify an OU to see what computers in that OU are not running the build number you specify. 
+Get-ADComputer -Filter {OperatingSystemVersion -notlike'*1904*' -and OperatingSystem -like 'Windows 10*'} -Properties OperatingSystemVersion -SearchBase '<OU you want to search>'| Format-Table Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion -Wrap –Auto 
